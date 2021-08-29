@@ -11,6 +11,20 @@ class XylophoneApp extends StatelessWidget {
     final player = AudioCache();
     player.play('note$n.wav');
   }
+  Expanded buildButton(int number, String colorCode){
+      var clr  = "0xff${colorCode}";
+      return Expanded(
+              child:
+              Container(
+                color: Color(int.parse(clr)),
+                child : TextButton(
+                onPressed: (){getSound(number);
+                }, 
+                child: SizedBox(),
+                ),
+                )
+            );
+  }
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -20,82 +34,16 @@ class XylophoneApp extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
+            buildButton(1,"f94144"),
+            buildButton(2,"f3722c"),
+            buildButton(3,"f8961e"),
+            buildButton(4,"90be6d"),
+            buildButton(5,"43aa8b"),
+            buildButton(6,"577590"),
+            buildButton(7,"277da1"),
+
             
-            Expanded(
-              child:
-              Container(
-                color: Colors.red,
-                child : TextButton(
-                onPressed: (){getSound(1);
-                }, 
-                child: SizedBox(),
-                ),
-                )
-            ),
-             Expanded(
-              child:
-              Container(
-                color: Colors.orange,child : TextButton(
-                onPressed: (){getSound(2);
-                }, 
-                child: SizedBox(),
-                ),
-                )
-            ),
-            Expanded(
-              child:
-              Container(
-                color: Colors.yellow,child : TextButton(
-                onPressed: (){getSound(3);
-                }, 
-                child: SizedBox(),
-                ),
-                )
-            ),
-            Expanded(
-              child:
-              Container(
-                color: Colors.green,
-                child : TextButton(
-                onPressed: (){getSound(4);
-                }, 
-                child: SizedBox(),
-                ),
-                )
-            ),
-            Expanded(
-              child:
-              Container(
-                color: Colors.teal,
-                child : TextButton(
-                onPressed: (){getSound(5);
-                }, 
-                child: SizedBox(),
-                ),
-                )
-            ),
-             Expanded(
-              child:
-              Container(
-                color: Colors.blue,
-                child : TextButton(
-                onPressed: (){getSound(6);
-                }, 
-                child: SizedBox(),
-                ),
-                )
-            ),
-             Expanded(
-              child:
-              Container(
-                color: Colors.indigo,
-                child : TextButton(
-                onPressed: (){getSound(7);
-                }, 
-                child: SizedBox(),
-                ),
-                )
-            ),
+             
              
           ])
               
