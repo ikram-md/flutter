@@ -41,10 +41,6 @@ class XylophoneApp extends StatelessWidget {
             buildButton(5,"43aa8b"),
             buildButton(6,"577590"),
             buildButton(7,"277da1"),
-
-            
-             
-             
           ])
               
               
