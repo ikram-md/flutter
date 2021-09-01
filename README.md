@@ -6,8 +6,10 @@ A repo with a collection of simple to intermediate flutter mobile apps which wer
 
 the official Flutter Documentation : 
  [Flutter dev official docs](https://flutter.dev/docs)
+ [Dart's Official documentation](https://dart.dev/)
  ### resources for better understanding Flutter App Layout : 
 
 - [Flutter Layout cheat Sheet](https://medium.com/flutter-community/flutter-layout-cheat-sheet-5363348d037e)
 - [The Flutter Way youtube channel](https://www.youtube.com/c/TheFlutterWay/playlists)
 - [Using Box decoration and BoxBorder ](https://www.woolha.com/tutorials/flutter-using-boxborder-examples)
+- [A nice youtube channel to dive deeper into Flutter Layout](https://www.youtube.com/channel/UC0FD2apauvegCcsvqIBceLA)
