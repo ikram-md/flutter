@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import '../components/constants.dart';
+import '../components/special_card.dart';
 
 class UserData extends StatelessWidget {
   const UserData({ Key key }) : super(key: key);
+  void calculateBMI(){
 
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,18 +23,28 @@ class UserData extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: <Widget>[
                   Text("Your Result", style: boldTextStyle,),
-                Container(
-                  child: Column(children: <Widget>[
-
-                  ],),
-                 height: 400.0,
-                  color: primaryPurple,),
+                  Expanded(
+                  child: SpecialCard(
+                    cardChild: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        Text("You're healthy", style: successText,),
+                        Text("22.8", style: biggerBoldText,),
+                        Text("You have an extra fat that could lead to dangerous diseases",
+                        style: resultText,
+                        textAlign: TextAlign.center,)
+                    ],)
+                    ),
+                    )
                 ],),
               ),
             ),
             Container(
               child: TextButton(
                 onPressed: (){
+                  //we can use as well 
+                  // Navigator.pushNamed(context, '/');
                   Navigator.pop(context);
                 },
               child: Text("RE-CALCULATE", 

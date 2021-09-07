@@ -14,4 +14,8 @@ const sliderStyle = SliderThemeData(
                       );
 const boldTextStyle = TextStyle(fontSize: 50.0, fontWeight: FontWeight.w900);
 const localTextStyle = TextStyle(fontSize: 18.0, color: Color(0xff8d8d88));
+const biggerBoldText = TextStyle(fontSize: 100.0, fontWeight: FontWeight.w900);
+const successText = TextStyle(fontSize: 35.0, fontWeight: FontWeight.w500, color: Colors.green);
+const resultText = TextStyle(fontSize: 24.0, fontWeight: FontWeight.w400,);
+
 const bottomContainerHeight = 60.0;
