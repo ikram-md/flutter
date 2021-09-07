@@ -22,7 +22,7 @@ class SpecialSliderCard extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-          Text('180.0', 
+          Text(height.toString(), 
           style:boldTextStyle,
            ),
            SizedBox(width: 5.0,),
@@ -35,7 +35,6 @@ class SpecialSliderCard extends StatelessWidget {
         min: 120.0,
         max: 210.0,
         divisions: 20,
-        label: height.toString(),
         onChanged: onPress,
       ),),
       

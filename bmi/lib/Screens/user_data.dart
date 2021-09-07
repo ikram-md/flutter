@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import '../components/constants.dart';
 import '../components/special_card.dart';
+import '../app_logic/bmi_brain.dart';
 
 class UserData extends StatelessWidget {
-  const UserData({ Key key }) : super(key: key);
-  void calculateBMI(){
-
-  }
+  const UserData({this.bmiRes, this.bmiText, this.bmiFeedback});
+  final String bmiRes;
+   final String bmiText;
+   final String bmiFeedback;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,9 +30,10 @@ class UserData extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
-                        Text("You're healthy", style: successText,),
-                        Text("22.8", style: biggerBoldText,),
-                        Text("You have an extra fat that could lead to dangerous diseases",
+                        Text(bmiText.toUpperCase(), style: successText,),
+                        Text(bmiRes, style: biggerBoldText,),
+                        Text(
+                        bmiFeedback,
                         style: resultText,
                         textAlign: TextAlign.center,)
                     ],)

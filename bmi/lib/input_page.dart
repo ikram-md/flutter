@@ -1,11 +1,12 @@
 import 'dart:ui';
-
+import 'package:bmi/Screens/user_data.dart';
 import 'package:flutter/material.dart';
 import 'components/constants.dart';
 import 'components/icon_card.dart';
 import 'components/special_card.dart';
 import 'components/slider.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import '../app_logic/bmi_brain.dart';
 
 //You cannot create enums inside of classes
 class InputPage extends StatefulWidget {
@@ -67,7 +68,6 @@ class _InputPageState extends State<InputPage> {
                     onPress: (double val){
                       setState(() {
                         height = val;
-                        print("Current height is $height");
                       });
                       
                   },),
@@ -101,10 +101,8 @@ class _InputPageState extends State<InputPage> {
                            ), func: (){
                              setState(() {
                               currentWeight>minWeight ? currentWeight--:currentWeight;
-
                              });
                            },)
-                       
                       ],)
 
                   ],),
@@ -144,7 +142,13 @@ class _InputPageState extends State<InputPage> {
             Container(
               child: TextButton(
                 onPressed: (){
-                  Navigator.pushNamed(context, '/user');
+                  Calculator calc = Calculator(height: height, weight: currentWeight);
+                  Navigator.push(context, MaterialPageRoute(builder: (context){
+                    return UserData(
+                    bmiRes: calc.bmi_calculate(),
+                     bmiText: calc.getResult(),
+                     bmiFeedback: calc.getFeedback(),);
+                  }));
                 },
               child: Text("Claculate", 
               style: TextStyle(color: Colors.white,
@@ -158,10 +162,6 @@ class _InputPageState extends State<InputPage> {
               width: double.infinity,
             )
           ]),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: Icon(Icons.calculate),
-      ),
     );
   }
 }

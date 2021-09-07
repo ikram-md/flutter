@@ -1,4 +1,3 @@
-import 'package:bmi/Screens/screen0.dart';
 import 'package:flutter/material.dart';
 import 'input_page.dart';
 import 'components/constants.dart';
@@ -17,7 +16,7 @@ class BMI extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/' : (context)=> const InputPage(),
-        '/user' : (context)=> const UserData(),
+        '/user' : (context)=>  const UserData(),
       },
       theme: ThemeData(
         primaryColor: Color(0xff10002b),
