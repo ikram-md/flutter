@@ -7,6 +7,8 @@ import 'components/special_card.dart';
 import 'components/slider.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../app_logic/bmi_brain.dart';
+import '../components/bottom_button.dart';
+import '../components/custom_button.dart';
 
 //You cannot create enums inside of classes
 class InputPage extends StatefulWidget {
@@ -47,7 +49,7 @@ class _InputPageState extends State<InputPage> {
               )),
               Expanded(
                   child: SpecialCard(
-                  onPress: () {
+                onPress: () {
                   setState(() {
                     selectedGender = Genders.female;
                   });
@@ -63,99 +65,127 @@ class _InputPageState extends State<InputPage> {
             ]),
             Expanded(
                 child: Container(
-                  child:SpecialSliderCard(
-                    height: height,
-                    onPress: (double val){
-                      setState(() {
-                        height = val;
-                      });
-                      
-                  },),
-                margin: EdgeInsets.only(left: 15.0, right: 15.0),
-                decoration: BoxDecoration(
+              child: SpecialSliderCard(
+                height: height,
+                onPress: (double val) {
+                  setState(() {
+                    height = val;
+                  });
+                },
+              ),
+              margin: EdgeInsets.only(left: 15.0, right: 15.0),
+              decoration: BoxDecoration(
                   color: primaryPurple,
                   borderRadius: BorderRadius.circular(10.0)),
             )),
             Row(children: <Widget>[
               Expanded(
                   child: SpecialCard(
-                  colour: primaryPurple,
-                  cardChild: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Text('Weight', style: localTextStyle,),
-                      Text('$currentWeight', style: boldTextStyle,),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: <Widget>[
-                        CustomButton(icon : Icon(
-                             FontAwesomeIcons.plus,
-                             color: Colors.white,
-                           ), func: (){setState(() {
-                             currentWeight<maxWright ? currentWeight++:currentWeight;
-                           });},),
-                        CustomButton(icon: Icon(
-                             FontAwesomeIcons.minus,
-                             color: Colors.white,
-                             
-                           ), func: (){
-                             setState(() {
-                              currentWeight>minWeight ? currentWeight--:currentWeight;
-                             });
-                           },)
-                      ],)
-
-                  ],),
+                colour: primaryPurple,
+                cardChild: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text(
+                      'Weight',
+                      style: localTextStyle,
+                    ),
+                    Text(
+                      '$currentWeight',
+                      style: boldTextStyle,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: <Widget>[
+                        CustomButton(
+                          icon: Icon(
+                            FontAwesomeIcons.plus,
+                            color: Colors.white,
+                          ),
+                          onPress: () {
+                            setState(() {
+                              currentWeight < maxWright
+                                  ? currentWeight++
+                                  : currentWeight;
+                            });
+                          },
+                        ),
+                        CustomButton(
+                          icon: Icon(
+                            FontAwesomeIcons.minus,
+                            color: Colors.white,
+                          ),
+                          onPress: () {
+                            setState(() {
+                              currentWeight > minWeight
+                                  ? currentWeight--
+                                  : currentWeight;
+                            });
+                          },
+                        )
+                      ],
+                    )
+                  ],
+                ),
               )),
               Expanded(
                   child: SpecialCard(
                 colour: primaryPurple,
                 cardChild: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Text('Age', style: localTextStyle,),
-                      Text('$currentAge', style: boldTextStyle,),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: <Widget>[
-                        CustomButton(icon : Icon(
-                             FontAwesomeIcons.plus,
-                             color: Colors.white,
-                           ), func: (){setState(() {
-                                currentAge++;
-                           });},),
-                        CustomButton(icon: Icon(
-                             FontAwesomeIcons.minus,
-                             color: Colors.white,
-                             
-                           ), func: (){
-                             setState(() {
-                                    currentAge--;
-                             });
-                           },)
-                       
-                      ],)
-
-                  ],),
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text(
+                      'Age',
+                      style: localTextStyle,
+                    ),
+                    Text(
+                      '$currentAge',
+                      style: boldTextStyle,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: <Widget>[
+                        CustomButton(
+                          icon: Icon(
+                            FontAwesomeIcons.plus,
+                            color: Colors.white,
+                          ),
+                          onPress: () {
+                            setState(() {
+                              currentAge++;
+                            });
+                          },
+                        ),
+                        CustomButton(
+                          icon: Icon(
+                            FontAwesomeIcons.minus,
+                            color: Colors.white,
+                          ),
+                          onPress: () {
+                            setState(() {
+                              currentAge--;
+                            });
+                          },
+                        )
+                      ],
+                    )
+                  ],
+                ),
               ))
             ]),
             Container(
-              child: TextButton(
-                onPressed: (){
-                  Calculator calc = Calculator(height: height, weight: currentWeight);
-                  Navigator.push(context, MaterialPageRoute(builder: (context){
+              child: BottomButton(
+                buttonText: "Calculate",
+                onPress: () {
+                  Calculator calc =
+                      Calculator(height: height, weight: currentWeight);
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
                     return UserData(
-                    bmiRes: calc.bmi_calculate(),
-                     bmiText: calc.getResult(),
-                     bmiFeedback: calc.getFeedback(),);
+                      bmiRes: calc.bmi_calculate(),
+                      bmiText: calc.getResult(),
+                      bmiFeedback: calc.getFeedback(),
+                    );
                   }));
                 },
-              child: Text("Claculate", 
-              style: TextStyle(color: Colors.white,
-               fontSize: 28.0,
-                fontWeight: FontWeight.w700,
-                 letterSpacing: 1.2),
-              ),
               ),
               color: Color(0xffeb1555),
               height: bottomContainerHeight,
@@ -166,25 +196,3 @@ class _InputPageState extends State<InputPage> {
   }
 }
 
-//building my own button 
-class CustomButton extends StatelessWidget {
-  final Icon icon;
-  final Function func;
-  const CustomButton({ Key key , this.icon, this.func}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return RawMaterialButton(
-      onPressed: func,
-      elevation: 6.0,
-      constraints: BoxConstraints.tightFor(
-        width: 56.0,
-        height: 56.0
-      ),
-      child: icon,
-      shape: CircleBorder(),
-      fillColor: activeColor,
-
-    );
-  }
-}

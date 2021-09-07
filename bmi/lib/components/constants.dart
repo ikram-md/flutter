@@ -17,5 +17,7 @@ const localTextStyle = TextStyle(fontSize: 18.0, color: Color(0xff8d8d88));
 const biggerBoldText = TextStyle(fontSize: 100.0, fontWeight: FontWeight.w900);
 const successText = TextStyle(fontSize: 35.0, fontWeight: FontWeight.w500, color: Colors.green);
 const resultText = TextStyle(fontSize: 24.0, fontWeight: FontWeight.w400, );
+const bottoButtonText = TextStyle(color: Colors.white,fontSize: 28.0,fontWeight: FontWeight.w700,letterSpacing: 1.2);
+
 
 const bottomContainerHeight = 60.0;
