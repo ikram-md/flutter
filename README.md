@@ -13,3 +13,8 @@ the official Flutter Documentation :
 - [The Flutter Way youtube channel](https://www.youtube.com/c/TheFlutterWay/playlists)
 - [Using Box decoration and BoxBorder ](https://www.woolha.com/tutorials/flutter-using-boxborder-examples)
 - [A nice youtube channel to dive deeper into Flutter Layout](https://www.youtube.com/channel/UC0FD2apauvegCcsvqIBceLA)
+## Screenshots of the Apps 
+### The BMI Calculator 
+![image](https://user-images.githubusercontent.com/56800980/132369001-96d2fe6a-6dc1-4b34-9013-577611351851.png)
+![image](https://user-images.githubusercontent.com/56800980/132369051-c8ed3dce-aef0-4062-b2d0-6b933418c097.png)
+
