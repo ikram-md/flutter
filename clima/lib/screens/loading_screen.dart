@@ -23,7 +23,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
   }
   //fetching data from the api 
   void fetchData(latt, long)async{
-    var API_KEY = "535cf9b6acf1f0d03df38b416d23c7d2";
+    var API_KEY; //your key goes here
    http.Response res = await http.get(Uri.parse("api.openweathermap.org/data/2.5/weather?lat=${latt}&lon=${long}&appid=${API_KEY}"));
     if(res.statusCode == 200){
       var data = jsonDecode(res.body);
