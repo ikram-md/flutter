@@ -19,7 +19,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
   }
   void getLocation() async{
     Position position = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
-    const API_KEY;
+    const API_KEY = '2410f34afd545edb11c749def8ee3756';
     var URI = "https://api.openweathermap.org/data/2.5/weather?lat=${position.latitude}&lon=${position.longitude}&appid=${API_KEY}";
     //retreive the data
     Networking netHelper = new Networking(url: URI);
