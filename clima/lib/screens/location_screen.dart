@@ -1,3 +1,4 @@
+import 'package:clima/screens/city_screen.dart';
 import 'package:clima/utilities/day_card.dart';
 import 'package:clima/utilities/weather_card.dart';
 import 'package:flutter/material.dart';
@@ -48,10 +49,17 @@ class _LocationScreenState extends State<LocationScreen> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Text(
-                        "${widget.name}, ${widget.country}",
-                        style: TextStyle(
-                            fontSize: 42, fontWeight: FontWeight.w800),
+                      Row(
+                        children: [
+                          Text(
+                            "${widget.name}, ${widget.country}",
+                            style: TextStyle(
+                                fontSize: 42, fontWeight: FontWeight.w800),
+                          ),
+                          TextButton(onPressed: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=> CityScreen()));
+                            }, child: Text("City Weather"))
+                        ],
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
