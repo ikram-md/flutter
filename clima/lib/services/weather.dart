@@ -28,6 +28,12 @@ class WeatherModel {
     var cityWeather = await net.getData();
     return cityWeather;
   }
+  Future getHourlyCityWeather()async{
+    var position = await getLocation();
+    Networking net = new Networking(url : "https://api.openweathermap.org/data/2.5/onecall?lat=${position.latitude}&lon=${position.longitude}&exclude=current,minutely,alerts&appid=${API_KEY}");
+    var hourlyData = await net.getData();
+    return hourlyData;
+  }
   String getWeatherIcon(int condition) {
     if (condition < 300) {
       return '🌩';
