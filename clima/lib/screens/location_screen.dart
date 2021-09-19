@@ -1,4 +1,4 @@
-import 'package:clima/screens/city_screen.dart';
+import 'package:clima/screens/input_screen.dart';
 import 'package:clima/utilities/day_card.dart';
 import 'package:clima/utilities/weather_card.dart';
 import 'package:flutter/material.dart';
